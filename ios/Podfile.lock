@@ -77,6 +77,9 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleMLKit/BarcodeScanning (3.2.0):
+    - GoogleMLKit/MLKitCore
+    - MLKitBarcodeScanning (~> 2.2.0)
   - GoogleMLKit/ImageLabeling (3.2.0):
     - GoogleMLKit/MLKitCore
     - MLKitImageLabeling (~> 2.2.0)
@@ -106,6 +109,9 @@ PODS:
   - hermes-engine (0.70.1)
   - libevent (2.1.12)
   - MLImage (1.0.0-beta3)
+  - MLKitBarcodeScanning (2.2.0):
+    - MLKitCommon (~> 8.0)
+    - MLKitVision (~> 4.2)
   - MLKitCommon (8.0.0):
     - GoogleDataTransport (~> 9.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
@@ -466,6 +472,9 @@ PODS:
     - ReactCommon/turbomodule/core
     - Yoga
   - SocketRocket (0.6.0)
+  - vision-camera-code-scanner (0.2.0):
+    - GoogleMLKit/BarcodeScanning
+    - React-Core
   - vision-camera-image-labeler (0.1.6):
     - GoogleMLKit/ImageLabeling
     - React-Core
@@ -537,6 +546,7 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
+  - vision-camera-code-scanner (from `../node_modules/vision-camera-code-scanner`)
   - vision-camera-image-labeler (from `../node_modules/vision-camera-image-labeler`)
   - VisionCamera (from `../node_modules/react-native-vision-camera`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -562,6 +572,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - libevent
     - MLImage
+    - MLKitBarcodeScanning
     - MLKitCommon
     - MLKitImageLabeling
     - MLKitImageLabelingCommon
@@ -644,6 +655,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
+  vision-camera-code-scanner:
+    :path: "../node_modules/vision-camera-code-scanner"
   vision-camera-image-labeler:
     :path: "../node_modules/vision-camera-image-labeler"
   VisionCamera:
@@ -677,6 +690,7 @@ SPEC CHECKSUMS:
   hermes-engine: 9cd393f741bfa14d1d0cd90cc373e3619c0bc7ea
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   MLImage: 489dfec109f21da8621b28d476401aaf7a0d4ff4
+  MLKitBarcodeScanning: d92fe1911001ec36870162c5a0eb206f612b7169
   MLKitCommon: f6da6c5659618c070b50a80db01248ebe2964175
   MLKitImageLabeling: 3a7c9b4ba2550c8a37d392c74b7d75c4c39aaa4c
   MLKitImageLabelingCommon: 48a3d85b80a993edb168576f94192338e046a836
@@ -716,6 +730,7 @@ SPEC CHECKSUMS:
   ReactCommon: 7f86326b92009925c6dcf93f8e825060171c379f
   RNReanimated: 60e291d42c77752a0f6d6f358387bdf225a87c6e
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
+  vision-camera-code-scanner: dda884a7f3ec8243a2a6d6489b91860648371bca
   vision-camera-image-labeler: 44dc35bea2ce7a6967d1033e48a210500a50be7d
   VisionCamera: 1b343c2325943efa72808450cf47e14907b9a7fa
   Yoga: 6c8252e38d65aa387daee699eacf027e055e0b31

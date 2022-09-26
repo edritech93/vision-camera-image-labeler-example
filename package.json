@@ -5,15 +5,18 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start --reset-cache",
+    "ios-device": "react-native run-ios --udid 00008020-0008242E2161002E",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postinstall": "cd ios && pod repo update && pod update && pod install && cd .."
   },
   "dependencies": {
     "react": "18.1.0",
     "react-native": "0.70.1",
     "react-native-reanimated": "^2.10.0",
     "react-native-vision-camera": "^2.14.1",
+    "vision-camera-code-scanner": "^0.2.0",
     "vision-camera-image-labeler": "^0.1.6"
   },
   "devDependencies": {

@@ -1,15 +1,18 @@
-import React, {useEffect} from 'react';
-import {StyleSheet} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {StyleSheet, View, Text} from 'react-native';
 import {
   useCameraDevices,
   Camera,
   useFrameProcessor,
 } from 'react-native-vision-camera';
 import {labelImage} from 'vision-camera-image-labeler';
+import {runOnJS} from 'react-native-reanimated';
 
 export default function App() {
   const devices = useCameraDevices('wide-angle-camera');
   const device = devices.back;
+
+  const [result, setResult] = useState(null);
 
   useEffect(() => {
     Camera.requestCameraPermission();
@@ -17,20 +20,23 @@ export default function App() {
 
   const frameProcessor = useFrameProcessor(frame => {
     'worklet';
-    const labels = labelImage(frame);
-    console.log('------------------------------------');
-    console.log('labels => ', labels);
-    console.log('------------------------------------');
+    const objRes = labelImage(frame);
+    if (objRes.length > 0) {
+      runOnJS(setResult)(objRes[0]);
+    }
   }, []);
 
   if (device) {
     return (
-      <Camera
-        style={styles.wrapCamera}
-        device={device}
-        isActive={true}
-        frameProcessor={frameProcessor}
-      />
+      <View style={styles.container}>
+        <Camera
+          style={styles.wrapCamera}
+          device={device}
+          isActive={true}
+          frameProcessor={frameProcessor}
+        />
+        <Text style={styles.textResult}>{result?.label ?? '-'}</Text>
+      </View>
     );
   } else {
     return null;
@@ -38,7 +44,19 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   wrapCamera: {
     flex: 1,
+  },
+  textResult: {
+    position: 'absolute',
+    bottom: 55,
+    left: 0,
+    right: 0,
+    backgroundColor: 'red',
+    fontSize: 32,
+    textAlign: 'center',
   },
 });
